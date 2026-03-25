@@ -1,0 +1,40 @@
+# Tomato Maturity Index Prediction and Disease Classification
+# Requirements File
+# Platform: Kaggle Notebooks (Python 3.10, Ubuntu 22.04 LTS)
+# GPU: 2x NVIDIA Tesla T4 (CUDA 12.x, cuDNN 9.1.0)
+
+# ── Deep Learning ─────────────────────────────────────────────────────────────
+tensorflow==2.16.0
+keras==3.0.0
+
+# ── Data Processing ───────────────────────────────────────────────────────────
+numpy==1.26.4
+pandas==2.1.4
+
+# ── Machine Learning / Dimensionality Reduction ───────────────────────────────
+scikit-learn==1.4.0
+
+# ── Image Processing ──────────────────────────────────────────────────────────
+Pillow==10.1.0
+opencv-python==4.9.0.80
+
+# ── Visualisation ─────────────────────────────────────────────────────────────
+matplotlib==3.8.2
+seaborn==0.13.2
+
+# ── Serialisation ─────────────────────────────────────────────────────────────
+# pickle is part of Python standard library — no install required
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+tqdm==4.66.1
+
+# ── Notes ─────────────────────────────────────────────────────────────────────
+# CUDA and cuDNN are pre-installed on Kaggle and do not require pip installation.
+# To install on a local GPU machine:
+#   pip install tensorflow[and-cuda]==2.16.0
+#
+# To install all requirements:
+#   pip install -r requirements.txt
+#
+# For Kaggle: all packages above are pre-installed in the standard
+# Kaggle Python 3.10 notebook environment. No manual installation needed.
