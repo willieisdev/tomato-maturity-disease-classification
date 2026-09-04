@@ -40,3 +40,6 @@ results/      — Training logs (CSV) and result figures
 2. Add both datasets as inputs (see Dataset links above)
 3. Set accelerator to GPU T4 x2
 4. Run all cells sequentially
+
+## To test live
+Go to https://tomato-cv.streamlit.app/
