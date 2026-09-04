@@ -2,11 +2,19 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import tensorflow as tf
+from pathlib import Path
 
 # ── Config ────────────────────────────────────────────────────────────
 # Confirmed against notebook-2-v2-three-custom-models-2.ipynb: IMG_SIZE=(224,224),
 # rescale=1./255, class_mode='categorical' (softmax output), RGB.
 IMG_SIZE = (224, 224)
+
+# Resolve paths relative to this script's own location, not the current
+# working directory — Streamlit Cloud runs from the repo root while local
+# `cd app && streamlit run app.py` runs from app/, so a plain "models/..."
+# string resolves differently in each environment. This fixes that.
+APP_DIR = Path(__file__).resolve().parent
+MODELS_DIR = APP_DIR / "models"
 
 A1_LABELS = ["Immature", "Mature"]   # Task A1: Maturity Detection (fruit image)
 A2_LABELS = ["Fresh", "Rotten"]      # Task A2: Quality Grading (fruit image)
@@ -20,21 +28,21 @@ TASKS = {
     "Maturity Detection": {
         "emoji": "🍅",
         "subject": "fruit",
-        "model_path": "models/TomatoNet_A1_best.keras",
+        "model_path": str(MODELS_DIR / "TomatoNet_A1_best.keras"),
         "labels": A1_LABELS,
         "metric_name": "Maturity",
     },
     "Quality Grading": {
         "emoji": "🍅",
         "subject": "fruit",
-        "model_path": "models/TomatoNet_A2_best.keras",
+        "model_path": str(MODELS_DIR / "TomatoNet_A2_best.keras"),
         "labels": A2_LABELS,
         "metric_name": "Quality",
     },
     "Disease Detection": {
         "emoji": "🍃",
         "subject": "leaf",
-        "model_path": "models/TomatoNet_B_best.keras",
+        "model_path": str(MODELS_DIR / "TomatoNet_B_best.keras"),
         "labels": B_LABELS,
         "metric_name": "Diagnosis",
     },
